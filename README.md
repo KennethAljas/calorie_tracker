@@ -1,0 +1,3 @@
+- Simple calorie tracker
+- User can enter their calorie goal and enter calories each time they eat
+- Once the day is over the user can reset their calorie count.
