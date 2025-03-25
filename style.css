@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(97, 97, 97);
+    margin: 0px;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainButton {
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    width: 200px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.mainButton:hover {
+    background-color: green;
+}
+
+.calorieView {
+    display: none;
+    height: 10%;
+    width: 80%;
+    border-radius: 6px;
+    background-color: white;
+}
