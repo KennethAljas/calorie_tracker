@@ -26,8 +26,21 @@ body {
 
 .calorieView {
     display: none;
-    height: 10%;
+    height: 25%;
     width: 80%;
     border-radius: 6px;
     background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calorieViewInfo {
+    margin: 10px;
+}
+
+.close {
+    float: right;
+    margin: 10px;
 }
