@@ -190,6 +190,7 @@ body {
 }
 
 .closeButton {
+    margin-left: 270px;
     position: relative;
     width: 30px;
     height: 30px;
