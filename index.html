@@ -12,8 +12,9 @@
         <button class="mainButton marginBottom" id="resetCalories">Reset calories</button>
 
         <div class="counterParent">
-            <div class="circle">
+            <div id="circle" class="circle">
                 <p id="counter" class="counter">0</p>
+                <p id="goal" class="counter">0</p>
             </div>
         </div>
 
@@ -23,6 +24,9 @@
         <div id="calorieView" class="calorieView">
             <button class="close" id="closeCalorieView">X</button>
             <div class="calorieViewInfo">
+                <p>Set calorie goal</p>
+                <input id="goalInput" placeholder="3000">
+                <button class="mainButton" id="setGoal">Set goal</button>
                 <p>Add calorie amount</p>
                 <input id="calorieAmount" placeholder="0">
                 <button class="mainButton" id="addCalories">Add</button>

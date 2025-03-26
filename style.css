@@ -15,7 +15,7 @@ body {
 .circle {
     width: 150px;
     height: 150px;
-    border: 6px solid rgb(100, 0, 0);
+    border: 6px solid red;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -23,6 +23,11 @@ body {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
+    flex-direction: column;
+}
+
+.counter {
+    margin: 0;
 }
 
 .mainButton {
@@ -64,4 +69,16 @@ body {
 .close {
     float: right;
     margin: 10px;
+}
+
+.red {
+    border-color: rgb(255, 0, 0);
+}
+
+.yellow {
+    border-color: yellow;
+}
+
+.green {
+    border-color: green;
 }
