@@ -24,12 +24,12 @@
         <div id="calorieView" class="calorieView">
             <button class="close" id="closeCalorieView">X</button>
             <div class="calorieViewInfo">
-                <p>Set calorie goal</p>
-                <input id="goalInput" placeholder="3000">
-                <button class="mainButton" id="setGoal">Set goal</button>
-                <p>Add calorie amount</p>
-                <input id="calorieAmount" placeholder="0">
-                <button class="mainButton" id="addCalories">Add</button>
+                <form id="calorieForm" class="calorieForm">
+                    <input id="goalInput" type="number" name="goalInput" placeholder="Set calorie goal" required>
+                    <input id="calorieAmount" type="number" name="calorieAmount" placeholder="Calories to add" required>
+                
+                    <button type="submit" class="mainButton" id="calorieButton">Set Goal</button>
+                </form>                
             </div>
         </div>
     </div>

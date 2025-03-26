@@ -1,7 +1,7 @@
 const openCalorieView = document.getElementById("openCalorieView")
 const calorieView = document.getElementById("calorieView")
 const closeCalorieView = document.getElementById("closeCalorieView")
-const addCalories = document.getElementById("addCalories")
+const calorieForm = document.getElementById("calorieForm")
 const calorieAmount = document.getElementById("calorieAmount")
 const counter = document.getElementById("counter")
 const reset = document.getElementById("resetCalories")
@@ -20,16 +20,14 @@ openCalorieView.addEventListener('click', function (e) {
     calorieView.style.display = 'block'
 })
 
-setGoalButton.addEventListener('click', function (e) {
-    currentGoal = Number(goalAmount.value)
-    goalInCircle.textContent = currentGoal
-})
-
 closeCalorieView.addEventListener('click', function (e) {
     calorieView.style.display = 'none'
 })
 
-addCalories.addEventListener('click', function (e) {
+calorieForm.addEventListener('submit', function (e) {
+    e.preventDefault()
+    currentGoal = Number(goalAmount.value)
+    goalInCircle.textContent = currentGoal
     let addedCalories = Number(calorieAmount.value)
     if (!isNaN(addedCalories) && addedCalories > 0) {
         total += addedCalories

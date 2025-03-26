@@ -3,6 +3,11 @@ body {
     margin: 0px;
 }
 
+input {
+    border-radius: 6px;
+    height: 20px;
+}
+
 .main {
     height: 100%;
     height: 100vh;
@@ -52,8 +57,8 @@ body {
 
 .calorieView {
     display: none;
-    height: 25%;
-    width: 80%;
+    height: 250px;
+    width: 300px;
     border-radius: 6px;
     background-color: white;
     position: absolute;
@@ -62,12 +67,21 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.calorieForm {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .calorieViewInfo {
     margin: 10px;
 }
 
 .close {
-    float: right;
+    position: absolute;
     margin: 10px;
 }
 
