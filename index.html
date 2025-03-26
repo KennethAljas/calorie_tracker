@@ -28,8 +28,18 @@
             <button class="close" id="closeCalorieView">X</button>
             <div class="calorieViewInfo">
                 <form id="calorieForm" class="calorieForm">
-                    <input id="goalInput" type="number" name="goalInput" placeholder="Set calorie goal" required>
-                    <input id="calorieAmount" type="number" name="calorieAmount" placeholder="Calories to add" required>
+                    <div class="form-control">
+                        <input id="goalInput" type="value" required="">
+                        <label>
+                            <span style="transition-delay:0ms">G</span><span style="transition-delay:50ms">O</span><span style="transition-delay:100ms">A</span><span style="transition-delay:150ms">L</span>
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <input id="calorieAmount" type="value" required="">
+                        <label>
+                            <span style="transition-delay:0ms">A</span><span style="transition-delay:50ms">D</span><span style="transition-delay:100ms">D</span><span style="transition-delay:150ms"></span><span style="transition-delay:200ms">C</span><span style="transition-delay:250ms">A</span><span style="transition-delay:300ms">L</span><span style="transition-delay:350ms">O</span><span style="transition-delay:400ms">R</span><span style="transition-delay:450ms">I</span><span style="transition-delay:500ms">E</span><span style="transition-delay:550ms">S</span>
+                        </label>
+                    </div>
                 
                     <button type="submit" class="btn blackBorder" id="calorieButton">Set Goal</button>
                 </form>                
