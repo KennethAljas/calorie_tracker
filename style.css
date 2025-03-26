@@ -29,11 +29,11 @@ body {
     overflow: hidden;
 }
    
-button:hover {
+.mainButton:hover {
     color: black;
 }
 
-button:after {
+.mainButton:after {
     content: "";
     background: white;
     position: absolute;
@@ -46,7 +46,7 @@ button:after {
     transition: all 0.5s;
 }
 
-button:hover:after {
+.mainButton:hover:after {
     transform: skewX(-45deg) scale(1, 1);
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
@@ -85,14 +85,9 @@ button:hover:after {
     margin-bottom: 200px;
 }
 
-.mainButton:hover {
-    background-color: rgb(41, 41, 41);
-    color: white;
-}
-
 .calorieView {
     display: none;
-    height: 300px;
+    height: 350px;
     width: 300px;
     border-radius: 6px;
     background-color: white;
@@ -186,4 +181,69 @@ button:hover:after {
 .form-control input:valid+label span {
     color: rgb(0, 0, 0);
     transform: translateY(-30px);
+}
+
+.closeButton {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+}
+
+.X {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 1em;
+    height: 1px;
+    background-color: #000000;
+    transform: rotate(45deg);
+}
+
+.Y {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 1em;
+    height: 1px;
+    background-color: #000000;
+    transform: rotate(-45deg);
+}
+
+.close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -40%;
+    left: 70%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 16px;
+    background-color: rgb(254, 255, 225);
+    color: #000;
+    border: 1px solid #000;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.closeButton:hover {
+    background-color: rgb(210, 0, 0);
+}
+
+.closeButton:active {
+    background-color: rgb(130, 0, 0);
+}
+
+.closeButton:hover > .close {
+    animation: close 0.2s forwards 1.25s;
+}
+
+@keyframes close {
+    100% {
+    opacity: 1;
+    }
 }

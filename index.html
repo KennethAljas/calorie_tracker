@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="main">
-        <button class="btn marginBottom" id="resetCalories">Reset calories</button>
+        <button class="btn mainButton marginBottom" id="resetCalories">Reset calories</button>
 
         <div class="counterParent">
             <div id="circle" class="circle">
@@ -21,11 +21,15 @@
             </div>
         </div>
 
-        <button class="btn marginTop" id="openCalorieView">Add calories</button>
+        <button class="btn mainButton marginTop" id="openCalorieView">Add calories</button>
 
         <div id="blur" class="blur"></div>
         <div id="calorieView" class="calorieView">
-            <button class="close" id="closeCalorieView">X</button>
+            <button class="closeButton" id="closeCalorieView">
+                <span class="X"></span>
+                <span class="Y"></span>
+                <div class="close">Close</div>
+            </button>
             <div class="calorieViewInfo">
                 <form id="calorieForm" class="calorieForm">
                     <div class="form-control">
@@ -41,7 +45,7 @@
                         </label>
                     </div>
                 
-                    <button type="submit" class="btn blackBorder" id="calorieButton">Set Goal</button>
+                    <button type="submit" class="btn mainButton blackBorder" id="calorieButton">Set Goal</button>
                 </form>                
             </div>
         </div>
