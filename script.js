@@ -9,6 +9,7 @@ const circle = document.getElementById("circle")
 const goalAmount = document.getElementById("goalInput")
 const setGoalButton = document.getElementById("setGoal")
 const goalInCircle = document.getElementById("goal")
+const blurScreen = document.getElementById("blur")
 
 // Set calorie total and goal from storage
 let total = Number(localStorage.getItem("total")) || 0
@@ -21,11 +22,13 @@ goalAmount.value = currentGoal
 
 // Open calorie view
 openCalorieView.addEventListener('click', function (e) {
+    blurScreen.style.display = "block"
     calorieView.style.display = 'block'
 })
 
 // Close calorie view
 closeCalorieView.addEventListener('click', function (e) {
+    blurScreen.style.display = "none"
     calorieView.style.display = 'none'
 })
 
@@ -61,11 +64,13 @@ calorieForm.addEventListener('submit', function (e) {
     localStorage.setItem("currentGoal", currentGoal)
 
     calorieAmount.value = ''
+    blurScreen.style.display = "none"
     calorieView.style.display = 'none'
 })
 
 // Reset calorie total
 reset.addEventListener('click', function (e) {
+    blurScreen.style.display = "none"
     counter.innerHTML = 0
     total = 0
     localStorage.setItem("total", total)
