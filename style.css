@@ -118,14 +118,20 @@ body {
 
 .red {
     border-color: rgb(255, 0, 0);
+    box-shadow: 0 0 35px rgb(231, 0, 0);
+    animation: pulse 1s infinite alternate, pop 0.5s ease-in-out;
 }
 
 .yellow {
     border-color: yellow;
+    box-shadow: 0 0 35px rgba(255, 255, 0, 1);
+    animation: pulse 1s infinite alternate, pop 0.5s ease-in-out;
 }
 
 .green {
     border-color: green;
+    box-shadow: 0 0 35px rgba(0, 255, 0, 1);
+    animation: pulse 1s infinite alternate, pop 0.5s ease-in-out;
 }
 
 .blur {
