@@ -38,7 +38,7 @@ calorieForm.addEventListener('submit', function (e) {
     currentGoal = Number(goalAmount.value)
     goalInCircle.textContent = currentGoal
     let addedCalories = Number(calorieAmount.value)
-    if (!isNaN(addedCalories) && addedCalories > 0) {
+    if (!isNaN(addedCalories)) {
         total += addedCalories
         counter.textContent = total
     }
