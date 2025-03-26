@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calorie Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="main">
-        <button class="mainButton marginBottom" id="resetCalories">Reset calories</button>
+        <button class="btn marginBottom" id="resetCalories">Reset calories</button>
 
         <div class="counterParent">
             <div id="circle" class="circle">
@@ -18,7 +21,7 @@
             </div>
         </div>
 
-        <button class="mainButton marginTop" id="openCalorieView">Add calories</button>
+        <button class="btn marginTop" id="openCalorieView">Add calories</button>
 
 
         <div id="calorieView" class="calorieView">
@@ -28,7 +31,7 @@
                     <input id="goalInput" type="number" name="goalInput" placeholder="Set calorie goal" required>
                     <input id="calorieAmount" type="number" name="calorieAmount" placeholder="Calories to add" required>
                 
-                    <button type="submit" class="mainButton" id="calorieButton">Set Goal</button>
+                    <button type="submit" class="btn blackBorder" id="calorieButton">Set Goal</button>
                 </form>                
             </div>
         </div>
