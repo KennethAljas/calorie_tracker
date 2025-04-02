@@ -10,6 +10,7 @@ const goalAmount = document.getElementById("goalInput")
 const setGoalButton = document.getElementById("setGoal")
 const goalInCircle = document.getElementById("goal")
 const blurScreen = document.getElementById("blur")
+const historyContainer = document.getElementById("historyContainer")
 
 // Set calorie total and goal from storage
 let total = Number(localStorage.getItem("total")) || 0
@@ -19,6 +20,17 @@ circle.classList.add(color)
 counter.innerHTML = total
 goalInCircle.textContent = currentGoal
 goalAmount.value = currentGoal
+reloadHistory()
+
+function reloadHistory() {
+    const savedHistory = JSON.parse(localStorage.getItem('caloriesHistory')) || []
+    savedHistory.forEach(calories => {
+        historyContainer.style.display = "block"
+        const historyBlock = document.createElement('div')
+        historyBlock.textContent = `+${calories} cal`
+        historyContainer.appendChild(historyBlock)
+    })
+}
 
 // Open calorie view
 openCalorieView.addEventListener('click', function (e) {
@@ -66,6 +78,15 @@ calorieForm.addEventListener('submit', function (e) {
     calorieAmount.value = ''
     blurScreen.style.display = "none"
     calorieView.style.display = 'none'
+
+    historyContainer.style.display = "block"
+    const newDiv = document.createElement("div")
+    newDiv.textContent = '+' + addedCalories + ' cal'
+    historyContainer.appendChild(newDiv)
+
+    const caloriesHistory = JSON.parse(localStorage.getItem('caloriesHistory')) || []
+    caloriesHistory.push(addedCalories)
+    localStorage.setItem('caloriesHistory', JSON.stringify(caloriesHistory))
 })
 
 // Reset calorie total
@@ -76,4 +97,7 @@ reset.addEventListener('click', function (e) {
     localStorage.setItem("total", total)
     localStorage.removeItem("color")
     circle.classList.remove("red", "yellow", "green")
+    localStorage.removeItem("caloriesHistory")
+    historyContainer.innerHTML = ""
+    historyContainer.style.display = "none"
 })
