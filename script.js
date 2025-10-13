@@ -11,6 +11,7 @@ const setGoalButton = document.getElementById("setGoal")
 const goalInCircle = document.getElementById("goal")
 const blurScreen = document.getElementById("blur")
 const historyContainer = document.getElementById("historyContainer")
+const counterParent = document.getElementById("counterParent")
 
 // Set calorie total and goal from storage
 let total = Number(localStorage.getItem("total")) || 0
@@ -100,4 +101,21 @@ reset.addEventListener('click', function (e) {
     localStorage.removeItem("caloriesHistory")
     historyContainer.innerHTML = ""
     historyContainer.style.display = "none"
+})
+
+// Switch logic
+const switchButton = document.getElementById("switch")
+let toggled = false
+
+switchButton.addEventListener("click", () => {
+    if (toggled) {
+        reset.style.display = "block"
+        counterParent.style.display = "block"
+        openCalorieView.style.display = "block"
+    } else {
+        reset.style.display = "none"
+        counterParent.style.display = "none"
+        openCalorieView.style.display = "none"
+    }
+    toggled = !toggled
 })
