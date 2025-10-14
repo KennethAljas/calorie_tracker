@@ -14,20 +14,30 @@
     <div class="historyContainer" id="historyContainer"></div>
 
     <div class="main">
-        <div class="switch">
-            <input type="checkbox" id="switch">
+        <div class="top">
+            <div class="switch">
+                <input type="checkbox" id="switch">
+            </div>
+            <button class="btn mainButton" id="resetCalories">Reset calories</button>
+            <button class="btn mainButton" id="addTask">Add task</button>
         </div>
 
-        <button class="btn mainButton marginBottom" id="resetCalories">Reset calories</button>
+        <div class="middle">
+            <div class="taskParent">
+                
+            </div>
 
-        <div class="counterParent" id="counterParent">
-            <div id="circle" class="circle">
-                <p id="counter" class="counter">0</p>
-                <p id="goal" class="counter">0</p>
+            <div class="counterParent" id="counterParent">
+                <div id="circle" class="circle">
+                    <p id="counter" class="counter">0</p>
+                    <p id="goal" class="counter">0</p>
+                </div>
             </div>
         </div>
 
-        <button class="btn mainButton marginTop" id="openCalorieView">Add calories</button>
+        <div class="bottom">
+            <button class="btn mainButton" id="openCalorieView">Add calories</button>
+        </div>
 
         <div id="blur" class="blur"></div>
         <div id="calorieView" class="calorieView">

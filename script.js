@@ -104,7 +104,9 @@ reset.addEventListener('click', function (e) {
 })
 
 // Switch logic
+const addTaskButton = document.getElementById("addTask")
 const switchButton = document.getElementById("switch")
+addTaskButton.style.display = "none"
 let toggled = false
 
 switchButton.addEventListener("click", () => {
@@ -112,10 +114,14 @@ switchButton.addEventListener("click", () => {
         reset.style.display = "block"
         counterParent.style.display = "block"
         openCalorieView.style.display = "block"
+
+        addTaskButton.style.display = "none"
     } else {
         reset.style.display = "none"
         counterParent.style.display = "none"
         openCalorieView.style.display = "none"
+
+        addTaskButton.style.display = "block"
     }
     toggled = !toggled
 })
