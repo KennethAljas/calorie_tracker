@@ -300,6 +300,16 @@ body {
   border: 3px solid #222;
 }
 
+.taskParent {
+    gap: 5px;
+}
+
+.task {
+    border: 1px solid #ffffff;
+    width: 25vh;
+    height: 25px;
+}
+
 @keyframes close {
     100% {
     opacity: 1;
