@@ -104,10 +104,7 @@ reset.addEventListener('click', function (e) {
 })
 
 // Switch logic
-const addTaskButton = document.getElementById("addTask")
-const taskParent = document.getElementById("taskParent")
 const switchButton = document.getElementById("switch")
-addTaskButton.style.display = "none"
 let toggled = false
 
 switchButton.addEventListener("click", () => {
@@ -117,7 +114,7 @@ switchButton.addEventListener("click", () => {
         openCalorieView.style.display = "block"
 
         taskParent.style.display = "none"
-        addTaskButton.style.display = "none"
+        taskButton.style.display = "none"
     } else {
         reset.style.display = "none"
         counterParent.style.display = "none"
@@ -125,13 +122,42 @@ switchButton.addEventListener("click", () => {
 
         taskParent.style.display = "flex"
         taskParent.style.flexDirection = "column"
-        addTaskButton.style.display = "block"
+        taskButton.style.display = "block"
     }
     toggled = !toggled
 })
 
-addTaskButton.addEventListener("click", () => {
-    const task = document.createElement("div")
+// Task logic
+const taskView = document.getElementById("taskView")
+const taskButton = document.getElementById("addTask")
+const taskForm = document.getElementById("taskForm")
+const taskInput = document.getElementById("taskInput")
+const taskParent = document.getElementById("taskParent")
+const closeTaskView = document.getElementById("closeTaskView")
+taskButton.style.display = "none"
+
+// Open task view
+taskButton.addEventListener("click", () => {
+    blurScreen.style.display = "block"
+    taskView.style.display = 'block'
+})
+
+// Close task view
+closeTaskView.addEventListener('click', function () {
+    blurScreen.style.display = "none"
+    taskView.style.display = 'none'
+})
+
+// Task form
+taskForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const task = document.createElement("input")
     task.className = "task"
+    task.value = taskInput.value
     taskParent.appendChild(task)
+
+    blurScreen.style.display = "none"
+    taskView.style.display = "none"
+    taskInput.value = ""
 })
