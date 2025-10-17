@@ -301,14 +301,55 @@ body {
 }
 
 .taskParent {
-    gap: 5px;
+    gap: 20px;
+}
+
+.taskItem {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .task {
-    border: 1px solid #ffffff;
-    width: 25vh;
-    height: 25px;
+    border-radius: 5px;
+    border: 2px solid #636363;
+    background-color: #222;
+    color: #636363;
+    height: 100%;
+    width: 250px;
+    padding-left: 8px;
 }
+
+.container {
+  cursor: pointer;
+  height: 93%;
+}
+
+.container input {
+  display: none;
+}
+
+.container svg {
+  overflow: visible;
+}
+
+.path {
+    fill: none;
+    stroke: #636363;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+}
+
+.container input:checked ~ svg .path {
+    stroke: rgb(16, 139, 43);
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+}
+
 
 @keyframes close {
     100% {
