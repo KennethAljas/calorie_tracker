@@ -174,7 +174,11 @@ function createTaskElement(taskText) {
     task.className = "taskItem"
 
     task.innerHTML = `
-        <input class="task" value="${taskText}">
+        <button class="deleteTask" id="deleteTask">
+            <span class="X2"></span>
+            <span class="Y2"></span>
+        </button>
+        <input class="task" value="${taskText}" disabled>
         <label class="container">
             <input type="checkbox">
             <svg viewBox="0 0 64 64" height="2em" width="2em">

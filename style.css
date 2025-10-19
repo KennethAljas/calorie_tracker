@@ -198,16 +198,28 @@ body {
     transform: translateY(-30px);
 }
 
-.closeButton {
-    margin-left: 270px;
+.deleteTask {
     position: relative;
-    width: 30px;
+    width: 29px;
     height: 30px;
     border: none;
     background: none;
+    color: white;
+    cursor: pointer;
 }
 
-.X {
+.closeButton {
+    margin-left: 270px;
+    position: relative;
+    width: 29px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+.X, .X2 {
     content: '';
     position: absolute;
     top: 50%;
@@ -218,7 +230,7 @@ body {
     transform: rotate(45deg);
 }
 
-.Y {
+.Y, .Y2 {
     content: '';
     position: absolute;
     top: 50%;
@@ -227,6 +239,10 @@ body {
     height: 1px;
     background-color: #000000;
     transform: rotate(-45deg);
+}
+
+.X2, .Y2 {
+    background-color: white;
 }
 
 .close {
