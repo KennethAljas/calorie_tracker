@@ -174,7 +174,7 @@ function createTaskElement(taskText) {
     task.className = "taskItem"
 
     task.innerHTML = `
-        <button class="deleteTask" id="deleteTask">
+        <button class="deleteTask">
             <span class="X2"></span>
             <span class="Y2"></span>
         </button>
@@ -190,8 +190,23 @@ function createTaskElement(taskText) {
             </svg>
         </label>
     `
+
+     // Delete task
+    const deleteBtn = task.querySelector(".deleteTask")
+    deleteBtn.addEventListener("click", () => {
+        task.remove()
+        deleteTask(taskText)
+    })
+
     return task
 }
+
+function deleteTask(taskText) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    tasks = tasks.filter(task => task !== taskText)
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
 
 // Save a task to localStorage
 function saveTask(taskText) {
