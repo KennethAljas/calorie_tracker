@@ -155,12 +155,12 @@ taskForm.addEventListener("submit", (e) => {
     const taskText = taskInput.value.trim()
     if (!taskText) return
 
-    // Create task element
-    const task = createTaskElement(taskText)
+    const taskData = { text: taskText, completed: false }
+    const task = createTaskElement(taskData)
     taskParent.appendChild(task)
 
     // Save to localStorage
-    saveTask(taskText)
+    saveTask(taskData)
 
     // Reset UI
     blurScreen.style.display = "none"
@@ -169,7 +169,8 @@ taskForm.addEventListener("submit", (e) => {
 })
 
 // Create a new DOM element for a task
-function createTaskElement(taskText) {
+function createTaskElement(taskData) {
+    const { text, completed } = taskData
     const task = document.createElement("div")
     task.className = "taskItem"
 
@@ -178,9 +179,9 @@ function createTaskElement(taskText) {
             <span class="X2"></span>
             <span class="Y2"></span>
         </button>
-        <input class="task" value="${taskText}" disabled>
+        <input class="task" value="${text}" disabled>
         <label class="container">
-            <input type="checkbox">
+            <input type="checkbox" ${completed ? "checked" : ""}>
             <svg viewBox="0 0 64 64" height="2em" width="2em">
                 <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 
                 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 
@@ -191,35 +192,50 @@ function createTaskElement(taskText) {
         </label>
     `
 
-     // Delete task
+    // Delete task
     const deleteBtn = task.querySelector(".deleteTask")
     deleteBtn.addEventListener("click", () => {
         task.remove()
-        deleteTask(taskText)
+        deleteTask(text)
+    })
+
+    // Checkbox logic
+    const checkbox = task.querySelector("input[type='checkbox']")
+    checkbox.addEventListener("change", () => {
+        toggleTaskCompletion(text, checkbox.checked)
     })
 
     return task
 }
 
-function deleteTask(taskText) {
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
-    tasks = tasks.filter(task => task !== taskText)
+// Save a task to localStorage
+function saveTask(taskData) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    tasks.push(taskData)
     localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
-
-// Save a task to localStorage
-function saveTask(taskText) {
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
-    tasks.push(taskText)
+// Delete a task from localStorage
+function deleteTask(taskText) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    tasks = tasks.filter(task => task.text !== taskText)
     localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
+// Toggle completion state
+function toggleTaskCompletion(taskText, completed) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    const updatedTasks = tasks.map(task =>
+        task.text === taskText ? { ...task, completed } : task
+    )
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks))
 }
 
 // Load all saved tasks from localStorage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || []
-    tasks.forEach(taskText => {
-        const task = createTaskElement(taskText)
+    tasks.forEach(taskData => {
+        const task = createTaskElement(taskData)
         taskParent.appendChild(task)
     })
 }
