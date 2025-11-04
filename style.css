@@ -317,14 +317,17 @@ body {
 }
 
 .taskParent {
-    gap: 20px;
     display: none;
+    overflow-y: auto;
+    height: 70vh;
+    width: 100.4%;
 }
 
 .taskItem {
     display: flex;
     gap: 15px;
     align-items: center;
+    padding-top: 20px;
 }
 
 .task {
