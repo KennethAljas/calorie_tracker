@@ -149,8 +149,16 @@ closeTaskView.addEventListener('click', function () {
 })
 
 // Task form
+let taskCount = JSON.parse(localStorage.getItem("tasks"))?.length || 0
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault()
+
+    if (taskCount >= 20) {
+        alert("Too many tasks!")
+        return
+    }
+    taskCount++
+    localStorage.setItem("taskCount", taskCount)
 
     const taskText = taskInput.value.trim()
     if (!taskText) return
@@ -197,6 +205,8 @@ function createTaskElement(taskData) {
     deleteBtn.addEventListener("click", () => {
         task.remove()
         deleteTask(text)
+        taskCount--
+        localStorage.setItem("taskCount", taskCount)
     })
 
     // Checkbox logic
@@ -239,5 +249,4 @@ function loadTasks() {
         taskParent.appendChild(task)
     })
 }
-
 loadTasks()
