@@ -46,12 +46,21 @@ closeCalorieView.addEventListener('click', function (e) {
 })
 
 // Calorie goal and total add logi
+let calorieCount = Number(localStorage.getItem("calorieCount")) || 0
 calorieForm.addEventListener('submit', function (e) {
     e.preventDefault()
     currentGoal = Number(goalAmount.value)
     goalInCircle.textContent = currentGoal
     let addedCalories = Number(calorieAmount.value)
     if (!isNaN(addedCalories)) {
+        
+        if (calorieCount >= 25) {
+        alert("Too many calories!")
+        return
+        }
+        calorieCount++
+        localStorage.setItem("calorieCount", calorieCount)
+
         total += addedCalories
         counter.textContent = total
     }
@@ -101,6 +110,8 @@ reset.addEventListener('click', function (e) {
     localStorage.removeItem("caloriesHistory")
     historyContainer.innerHTML = ""
     historyContainer.style.display = "none"
+    localStorage.removeItem("calorieCount")
+    calorieCount = 0
 })
 
 // Switch logic
