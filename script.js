@@ -116,6 +116,7 @@ reset.addEventListener('click', function (e) {
 
 // Switch logic
 const switchButton = document.getElementById("switch")
+const checkmarkAll = document.getElementById("checkmarkAll")
 let toggled = false
 
 switchButton.addEventListener("click", () => {
@@ -123,7 +124,8 @@ switchButton.addEventListener("click", () => {
         reset.style.display = "block"
         counterParent.style.display = "block"
         openCalorieView.style.display = "block"
-
+        
+        checkmarkAll.style.display = "none"
         taskParent.style.display = "none"
         taskButton.style.display = "none"
     } else {
@@ -131,6 +133,7 @@ switchButton.addEventListener("click", () => {
         counterParent.style.display = "none"
         openCalorieView.style.display = "none"
 
+        checkmarkAll.style.display = "block"
         taskParent.style.display = "flex"
         taskParent.style.flexDirection = "column"
         taskButton.style.display = "block"
