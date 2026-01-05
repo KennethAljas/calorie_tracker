@@ -255,6 +255,25 @@ function toggleTaskCompletion(taskText, completed) {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks))
 }
 
+// Checkmark all
+const checkmarkAllInput = document.querySelector("#checkmarkAll input")
+checkmarkAllInput.addEventListener("change", () => {
+    const checked = checkmarkAllInput.checked
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+
+    // Update all checkboxes
+    document.querySelectorAll(".taskItem input[type='checkbox']").forEach(cb => {
+        cb.checked = checked
+    })
+
+    // Update localStorage
+    const updatedTasks = tasks.map(task => ({
+        ...task,
+        completed: checked
+    }))
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks))
+})
+
 // Load all saved tasks from localStorage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || []
