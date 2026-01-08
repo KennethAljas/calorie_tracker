@@ -128,6 +128,7 @@ switchButton.addEventListener("click", () => {
         checkmarkAll.style.display = "none"
         taskParent.style.display = "none"
         taskButton.style.display = "none"
+        historyContainer.style.display = "block"
     } else {
         reset.style.display = "none"
         counterParent.style.display = "none"
@@ -137,6 +138,7 @@ switchButton.addEventListener("click", () => {
         taskParent.style.display = "flex"
         taskParent.style.flexDirection = "column"
         taskButton.style.display = "block"
+        historyContainer.style.display = "none"
     }
     toggled = !toggled
 })
