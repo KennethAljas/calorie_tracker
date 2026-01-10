@@ -208,6 +208,10 @@ body {
     cursor: pointer;
 }
 
+.deleteTask:active {
+    transform: scale(0.8);
+}
+
 .closeButton {
     margin-left: 270px;
     position: relative;
@@ -328,6 +332,15 @@ body {
     gap: 15px;
     align-items: center;
     padding-top: 20px;
+}
+
+.editIcon {
+    width: 18px;
+    cursor: pointer;
+}
+
+.editIcon:active {
+    transform: scale(0.8);
 }
 
 .task {

@@ -203,6 +203,7 @@ function createTaskElement(taskData) {
             <span class="X2"></span>
             <span class="Y2"></span>
         </button>
+        <img class="editIcon" src="editIcon.png">
         <input class="task" value="${text}" disabled>
         <label class="container">
             <input type="checkbox" ${completed ? "checked" : ""}>
