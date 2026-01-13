@@ -286,3 +286,10 @@ function loadTasks() {
     })
 }
 loadTasks()
+
+// Exit views by clicking blur
+blurScreen.addEventListener("click", () => {
+    blurScreen.style.display = "none"
+    calorieView.style.display = 'none'
+    taskView.style.display = 'none'
+})
