@@ -54,7 +54,7 @@
 
         <div id="blur" class="blur"></div>
         <div id="taskView" class="calorieView">
-            <button class="closeButton" id="closeTaskView">
+            <button class="closeButton">
                 <span class="X"></span>
                 <span class="Y"></span>
                 <div class="close">Close</div>
@@ -73,8 +73,29 @@
             </div>
         </div>
 
+        <div id="blur" class="blur"></div>
+        <div id="editView" class="calorieView">
+            <button class="closeButton">
+                <span class="X"></span>
+                <span class="Y"></span>
+                <div class="close">Close</div>
+            </button>
+            <div class="calorieViewInfo">
+                <form id="taskForm" class="calorieForm">
+                    <div class="form-control">
+                        <input id="taskInput" type="value" required="">
+                        <label>
+                            <span style="transition-delay:0ms">E</span><span style="transition-delay:50ms">D</span><span style="transition-delay:100ms">I</span><span style="transition-delay:150ms">T</span>
+                        </label>
+                    </div>
+                
+                    <button type="submit" class="btn mainButton blackBorder" id="editTaskButton">Edit Task</button>
+                </form>                
+            </div>
+        </div>
+
         <div id="calorieView" class="calorieView">
-            <button class="closeButton" id="closeCalorieView">
+            <button class="closeButton">
                 <span class="X"></span>
                 <span class="Y"></span>
                 <div class="close">Close</div>

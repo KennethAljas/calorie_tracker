@@ -1,6 +1,5 @@
 const openCalorieView = document.getElementById("openCalorieView")
 const calorieView = document.getElementById("calorieView")
-const closeCalorieView = document.getElementById("closeCalorieView")
 const calorieForm = document.getElementById("calorieForm")
 const calorieAmount = document.getElementById("calorieAmount")
 const counter = document.getElementById("counter")
@@ -39,11 +38,6 @@ openCalorieView.addEventListener('click', function (e) {
     calorieView.style.display = 'block'
 })
 
-// Close calorie view
-closeCalorieView.addEventListener('click', function (e) {
-    blurScreen.style.display = "none"
-    calorieView.style.display = 'none'
-})
 
 // Calorie goal and total add logi
 let calorieCount = Number(localStorage.getItem("calorieCount")) || 0
@@ -149,7 +143,6 @@ const taskButton = document.getElementById("addTask")
 const taskForm = document.getElementById("taskForm")
 const taskInput = document.getElementById("taskInput")
 const taskParent = document.getElementById("taskParent")
-const closeTaskView = document.getElementById("closeTaskView")
 taskButton.style.display = "none"
 
 // Open task view
@@ -158,10 +151,13 @@ taskButton.addEventListener("click", () => {
     taskView.style.display = 'block'
 })
 
-// Close task view
-closeTaskView.addEventListener('click', function () {
-    blurScreen.style.display = "none"
-    taskView.style.display = 'none'
+document.querySelectorAll(".closeButton").forEach(button => {
+    button.addEventListener("click", () => {
+        blurScreen.style.display = "none"
+        taskView.style.display = 'none'
+        calorieView.style.display = 'none'
+        editView.style.display = 'none'
+    })
 })
 
 // Task form
@@ -292,4 +288,13 @@ blurScreen.addEventListener("click", () => {
     blurScreen.style.display = "none"
     calorieView.style.display = 'none'
     taskView.style.display = 'none'
+    editView.style.display = 'none'
+})
+
+const editView = document.getElementById("editView")
+document.querySelectorAll(".editIcon").forEach(icon => {
+    icon.addEventListener("click", () => {
+        blurScreen.style.display = "block"
+        editView.style.display = "block"
+    })
 })
