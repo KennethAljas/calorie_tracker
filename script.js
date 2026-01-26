@@ -291,10 +291,47 @@ blurScreen.addEventListener("click", () => {
     editView.style.display = 'none'
 })
 
+let taskBeingEdited = null
+let oldTaskText = null
+const editTaskForm = document.getElementById("editTaskForm")
+const editTaskInput = document.getElementById("editTaskInput")
 const editView = document.getElementById("editView")
-document.querySelectorAll(".editIcon").forEach(icon => {
-    icon.addEventListener("click", () => {
-        blurScreen.style.display = "block"
-        editView.style.display = "block"
-    })
+document.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("editIcon")) return
+
+    const taskItem = e.target.closest(".taskItem")
+    const input = taskItem.querySelector(".task")
+
+    taskBeingEdited = taskItem
+    oldTaskText = input.value
+
+    editTaskInput.value = input.value
+
+    blurScreen.style.display = "block"
+    editView.style.display = "block"
+})
+
+editTaskForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    if (!taskBeingEdited) return
+
+    const newText = editTaskInput.value.trim()
+    if (!newText) return
+
+    const taskInputField = taskBeingEdited.querySelector(".task")
+    taskInputField.value = newText
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    const updatedTasks = tasks.map(task =>
+        task.text === oldTaskText
+            ? { ...task, text: newText }
+            : task
+    )
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks))
+
+    taskBeingEdited = null
+    oldTaskText = null
+    editTaskInput.value = ""
+    editView.style.display = "none"
+    blurScreen.style.display = "none"
 })
