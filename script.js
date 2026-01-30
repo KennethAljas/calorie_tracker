@@ -226,6 +226,7 @@ function createTaskElement(taskData) {
     const checkbox = task.querySelector("input[type='checkbox']")
     checkbox.addEventListener("change", () => {
         toggleTaskCompletion(text, checkbox.checked)
+        updateCheckmarkAllState()
     })
 
     return task
@@ -273,6 +274,14 @@ checkmarkAllInput.addEventListener("change", () => {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks))
 })
 
+function updateCheckmarkAllState() {
+    const checkboxes = document.querySelectorAll(".taskItem input[type='checkbox']")
+    const allChecked = [...checkboxes].length > 0 &&
+        [...checkboxes].every(cb => cb.checked)
+
+    checkmarkAllInput.checked = allChecked
+}
+
 // Load all saved tasks from localStorage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || []
@@ -282,6 +291,7 @@ function loadTasks() {
     })
 }
 loadTasks()
+updateCheckmarkAllState()
 
 // Exit views by clicking blur
 blurScreen.addEventListener("click", () => {
