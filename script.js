@@ -39,23 +39,25 @@ openCalorieView.addEventListener('click', function (e) {
 })
 
 
-// Calorie goal and total add logi
+const proteinCounter = document.getElementById("protein")
+const proteinInput = document.getElementById("proteinInput")
+let totalProtein = Number(localStorage.getItem("totalProtein")) || 0
+proteinCounter.innerHTML = totalProtein + " P"
+// Calorie goal, total logic
 let calorieCount = Number(localStorage.getItem("calorieCount")) || 0
 calorieForm.addEventListener('submit', function (e) {
     e.preventDefault()
     currentGoal = Number(goalAmount.value)
     goalInCircle.textContent = currentGoal
     let addedCalories = Number(calorieAmount.value)
+    let addedProtein = Number(proteinInput.value)
     if (!isNaN(addedCalories)) {
-        
-        if (calorieCount >= 25) {
-        alert("Too many calories!")
-        return
-        }
         calorieCount++
         localStorage.setItem("calorieCount", calorieCount)
 
         total += addedCalories
+        totalProtein += addedProtein
+        proteinCounter.textContent = totalProtein + " P"
         counter.textContent = total
     }
 
@@ -78,8 +80,10 @@ calorieForm.addEventListener('submit', function (e) {
     localStorage.setItem("color", color)
     localStorage.setItem("total", total)
     localStorage.setItem("currentGoal", currentGoal)
+    localStorage.setItem("totalProtein", totalProtein)
 
     calorieAmount.value = ''
+    proteinInput.value = ''
     blurScreen.style.display = "none"
     calorieView.style.display = 'none'
 
@@ -100,6 +104,9 @@ reset.addEventListener('click', function (e) {
     total = 0
     localStorage.setItem("total", total)
     localStorage.removeItem("color")
+    totalProtein = 0
+    proteinCounter.innerHTML = 0 + " P"
+    localStorage.removeItem("totalProtein")
     circle.classList.remove("red", "yellow", "green")
     localStorage.removeItem("caloriesHistory")
     historyContainer.innerHTML = ""
